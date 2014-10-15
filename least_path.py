@@ -24,17 +24,6 @@ x5 = Node()
 x6 = Node([Edge(3,x4),Edge(3,x5)])
 x7 = Node([Edge(4,x3),Edge(2,x6)])
 
-
-#x3.prnt()
-
-
-graph = {}
-graph[1] = [2,3]
-graph[2] = 4
-graph[3] = [5,1]
-
-#x = float('Inf')
-
 def bfsgraph(node):
 	que = deque([(node,0)])
 	minsum = float('Inf')
@@ -51,22 +40,3 @@ def bfsgraph(node):
 
 print bfsgraph(x1)
 
-
-visited = {1:0,2:0,3:0,4:0,5:0}
-
-
-def bfs(graph,node,visited):
-	neighbors = deque([node])
-	while len(neighbors) > 0:
-		tmp = neighbors.popleft()
-		print tmp
-		if visited[tmp] == 0:
-			visited[tmp] = 1
-			if graph.has_key(tmp):
-				if type(graph[tmp]) is not list:
-					graph[tmp] = [graph[tmp]]
-				for i in graph[tmp]:
-					neighbors.append(i)
-
-
-#bfs(graph,1,visited)
