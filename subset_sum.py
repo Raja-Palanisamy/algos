@@ -13,4 +13,18 @@ def subset_sum(arr,sum):
 				mat[i][j] = mat[i][j] | mat[i-arr[j-1]][j-1]
 	return mat[sum][x]
 
-print subset_sum([3, 34, 4, 12, 5, 2],int(raw_input()))
+def subset_nos(Numbers,Maximum):
+
+	Array = {}
+	Array[0] = 1
+
+	for CurrentNum in Numbers:
+	    for Num in xrange(Maximum - CurrentNum, -1, -1):
+        	if (Num in Array):
+            		Array[Num + CurrentNum] = Array.get(Num + CurrentNum,0) + Array[Num]
+	print Array.has_key(Maximum)
+
+arr = [3,34,5,12,5,2,]
+Num = int(raw_input())
+print subset_sum(arr,Num)
+subset_nos(arr,Num)
